@@ -61,6 +61,19 @@ function appendOtherStatusStrings(nation)
 //generates a unique game loss state string based on the current game state
 function lossString(nation)
 {
+  
+  if(internationalRelations<=0)
+  {
+    return "Relations between " + nation1State.name + " and " + nation2State.name + " have been strained to the point of war.  It may be years before the damage can be fully repaired. <br> GAME OVER";
+  }
+    
+  if(nation.famineCounter >=3 || nation.riotCounter >=3)
+  {
+    return "Discontent among the people has grown into a full scale revolution.  Your people have overthrown you and replaced you with someone who can get the job done better. <br> GAME OVER"
+  }
+  
+  otherNation = nations[(currentNationVal+1)%2].name;
 
-return "You have lost the game";
+  return "Your nation's cultural values have eroded and been replaced with those of " + otherNation+ ".  "+otherNation + "'s political influence over your people has rendered you as little more than a tributary of their great empire.  <BR> GAME OVER";
+  
 }
