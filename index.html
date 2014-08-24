@@ -2,20 +2,25 @@
 <html>
 <head>
 	<title>Ludum Dare 30</title>
-	<script src="ld30.js"></script> 
+	<script src="eventqueue.js"></script>
+	<script src="gamestate.js"></script>
+	<script src="strings.js"></script>
+	<script src="turns.js"></script>
 	<script>
 		function inTheBeginning() {
 			document.getElementById("title").innerHTML = "In the beginning ...";
+			startNextTurn();
 		}
 		function boom() {
 			document.getElementById("text").innerHTML = "there was Dr. Saurian!";
 			setTimeout(function(){alert("The world exploded. Good Job.")},800);
 		}
 		
-		function test() {
-			var strings = ["BMW", "Volvo", "Saab", "Ford"];
-			var functs = [boom, boom, boom, boom];
-			createOptions(strings, functs);
+		function startNextTurn() {
+			var results = nextTurn();
+			var text = document.getElementById("text");
+			text.innerHTML = results[0];
+			createOptions(results[1], results[2]);
 		}
 		
 		// nextTurn returns an array
@@ -28,7 +33,7 @@
 			choices.innerHTML = '';
 			var i;
 			for (i = 0; i < stringArray.length; i++) {
-				addButton(stringArray[i], fnctArray[i];nextTurn;);
+				addButton(stringArray[i], function(){fnctArray[i]();startNextTurn();} );
 			}
 		}
 		

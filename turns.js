@@ -7,7 +7,7 @@ function nextTurn()
 	
 	currentNation.turnCount++;
 
-	currentNation = nations[(currentNation+1)%2];
+	currentNation = nations[(currentNationVal+1)%2];
 
 	if(isFamine(currentNation))
 	{
@@ -24,5 +24,5 @@ function nextTurn()
 	  currentNation.assimilationCounter++;
 	}
 
-	
+	return ["Blah Blah", ["The only choice!"], [function(){boom()}]];
 }
