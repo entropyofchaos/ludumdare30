@@ -11,9 +11,9 @@ function startNextTurn() {
 	createOptions(results[1], results[2]);
 	
 	if (currentNation.name == "Rothstein") {
-		addAnImage("leader", "Rothstine.png", 200, 200); 
+		addAnImage("leader", "Rothstine.png", 237, 237); 
 	} else if (currentNation.name == "Sauria") {
-		addAnImage("leader", "Saurian.png", 200, 200) ;
+		addAnImage("leader", "Saurian.png", 237, 237);
 	}
 }
 
@@ -44,11 +44,8 @@ function addButton(text, refFnct) {
 
 function addAnImage(targetId, src, width, height) {
     var img;
-
-    img = document.createElement('img');
-    img.src = src;
+    img = document.getElementById(targetId);
+	img.src = src;
     img.style.width  = width  + "px";
     img.style.height = height + "px";
-    target = document.getElementById(targetId);
-    target.innerHTML = img.innerHTML;
 }
