@@ -16,6 +16,8 @@ nation1State.militarization = .1;
 nation1State.approval = .5;
 nation1State.name = "Rothstein";
 nation1State.turnCount=0;
+nation1State.industry = .1;
+
 
 nation1State.upcomingEvents = [];
 nation1State.upcomingDecisions = [];
@@ -32,6 +34,7 @@ nation2State.militarization = .2;
 nation2State.approval = .5;
 nation2State.name = "Sauria";
 nation2State.turnCount = -1; //nextTurn() will be called at the start of the game.  default naiton is nation2State.  will increment turncounter to 0 before cycling to nation1State. 
+nation2State.industry = .6;
 
 nation2State.upcomingEvents = [];
 nation2State.upcomingDecisions = [];
@@ -93,6 +96,17 @@ function cultureMoribund()
 	
   
 
+}
+
+
+function industryStrong(nation)
+{
+  return nation.industry >= .8;
+}
+
+function cultureStrong(nation)
+{
+  return nation.culturalHealth>=.8;
 }
 
 
