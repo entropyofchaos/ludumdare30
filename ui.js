@@ -15,6 +15,10 @@ function startNextTurn() {
 	} else if (currentNation.name == "Sauria") {
 		addAnImage("leader", "Saurian.png", 237, 237);
 	}
+	
+	// Country Name: Turn
+	var turn = document.getElementById("turn");
+	turn.innerHTML = currentNation.name + ": Turn " + (currentNation.turnCount + 1);
 }
 
 function createOptions(stringArray, fnctArray) {
