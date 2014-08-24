@@ -74,8 +74,8 @@ function addUpcomingEvent(nation, onTurn, fToCall, dayString)
 //event is [turn, functionToCall, dayString]
 function fireEvent(event)
 {
-	
-	status += 
+	event[EVENT_FUNCTION_INDEX]();
+	status += event[EVENT_DAY_STRING];
 
 }
 
@@ -92,6 +92,7 @@ function fireDecision(decision)
 	if(decision[CAN_EXECUTE_FUN_INDEX]())
 	{
 	  
+	  decision[DECISION_EXECUTE_FUN]();
 	
 	}
 	
