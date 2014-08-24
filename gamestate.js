@@ -47,9 +47,6 @@ var currentNation = nations[0];
 
 var status = "";
 
-var prologue = "";
-
-
 var currentDecisions=[];
 
 function isFamine(nation)
@@ -158,12 +155,7 @@ function isLoss( nation )
 }
 
 
-function lossString()
-{
 
-	
-
-}
 
 
 function populationSpillover()
