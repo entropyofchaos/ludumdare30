@@ -93,9 +93,7 @@ return false;
 
 function cultureMoribund()
 {
-	
-  
-
+return (nation.culturalHealth < .2);
 }
 
 
