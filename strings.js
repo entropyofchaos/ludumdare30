@@ -11,6 +11,22 @@ var riotString3 = "Despite a strong show of force, you have been unable to suppr
 var riotStrings = [riotString1, riotString2, riotString3];
 
 
+var famineString1 = "Your people are starving.";
+
+var famineString2 = "";
+
+var famineString3 = "";
+
+var famineStrings = [famineString1, famineString2, famineString3];
+
+
+var assimilationString1 = "The people's faith is weak.";
+var assimilationString2 = "";
+var assimilationString3 = "";
+
+var assimilationStrings = [assimilationString1, assimilationString2, assimilationString3];
+
+
 //generates a unique game loss state string based on the current game state
 function lossString()
 {
