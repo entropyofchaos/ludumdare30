@@ -10,11 +10,15 @@ function pollCounters()
 {
 	if(isFamine(currentNation))
 	{
-	
 	  status += famineStrings[currentNation.famineCounter];
 		
 	  currentNation.famineCounter++;
 	}
+	else
+	{
+	  currentNation.famineCounter=0;
+	}
+	
 
 	if(isRiots(currentNation))
 	{
@@ -22,12 +26,21 @@ function pollCounters()
 	
 	  currentNation.riotCounter++;
 	}
+	else
+	{
+	  currentNation.riotCounter=0;
+	}
+	
 
 	if(cultureMoribund(currentNation))
 	{
 	  status += assimilationStrings[currentNation];
 		
 	  currentNation.assimilationCounter++;
+	}
+	else
+	{
+	  currentNation.assimilationCounter=0;
 	}
 }
 
