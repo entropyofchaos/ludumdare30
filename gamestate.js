@@ -99,6 +99,16 @@ function cultureMoribund()
 }
 
 
+function approvalStrong(nation)
+{
+ return nation.approval >=.7;
+}
+
+function approvalWeak(nation)
+{
+ return nation.approval <=.15;
+}
+
 function industryStrong(nation)
 {
   return nation.industry >= .8;
