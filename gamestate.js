@@ -47,7 +47,8 @@ var currentNation = nations[0];
 
 var status = "";
 
-var currentDecisions=[];
+var currentDecisionStrings=[];
+var currentDecisionFunctions = [];
 
 function isFamine(nation)
 {
