@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ludum Dare 30</title>
+	<script>
+		function inTheBeginning() {
+			document.getElementById("title").innerHTML = "In the beginning ...";
+		}
+		function boom() {
+			document.getElementById("text").innerHTML = "there was Dr. Saurian!";
+			setTimeout(function(){alert("The world exploded. Good Job.")},800);
+		}
+		
+		function test() {
+			var strings = ["BMW", "Volvo", "Saab", "Ford"];
+			var functs = [boom, boom, boom, boom];
+			createOptions(strings, functs);
+		}
+		
+		function createOptions(stringArray, fnctArray) {
+			var choices = document.getElementById("choices");
+			choices.innerHTML = '';
+			var i;
+			for (i = 0; i < stringArray.length; i++) {
+				addButton(stringArray[i], fnctArray[i]);
+			}
+		}
+		
+		function addButton(text, refFnct) {
+			var p = document.createElement("p");
+			
+			var li = document.createElement("li");
+			li.style.color = "blue";
+			li.style.cursor = "pointer";
+			p.appendChild(li);
+			
+			var textnode = document.createTextNode(text);
+			li.appendChild(textnode);
+			
+			p.onclick = refFnct;
+			document.getElementById("choices").appendChild(p);
+		}
+	</script>
+</head>
+
+<body onload="inTheBeginning()">
+
+<div id="body">
+
+	<h1 id="title"></h1>
+
+	<p id="text"></p>
+	
+	<ol id="choices"></ol>
+
+</div>
+
+<button type="button" onclick="test()">Try it</button>
+
+</body>
+</html>
