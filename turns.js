@@ -56,6 +56,14 @@ function nextTurn()
 	  currentDecisionFunctions = [];
 	  
 	}
+	else
+	{	//if we're not ending the game we must always have an option to continue
+		if(!currentDecisionStrings.length)
+		{
+			currentDecisionStrings = ["Continue"];
+			currentDecisionFunctions = [function(){}];
+		}
+	}
 	
 	return [status, currentDecisionStrings, currentDecisionFunctions];
 }
