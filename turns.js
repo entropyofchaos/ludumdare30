@@ -43,7 +43,7 @@ function nextTurn()
 
 	checkForTriggeredEvents(currentNation);
 	
-	checkForCurrentDecisions();
+	checkForCurrentDecisions(currentNation);
 
 	pollCounters();
 	
