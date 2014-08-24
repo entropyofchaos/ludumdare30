@@ -38,8 +38,10 @@ function nextTurn()
 	turnReset();
 	
 	currentNation.turnCount++;
+
+	currentNationVal = (currentNationVal + 1)%2;
 	
-	currentNation = nations[(currentNationVal+1)%2];
+	currentNation = nations[currentNationVal];
 
 	checkForTriggeredEvents(currentNation);
 	
