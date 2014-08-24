@@ -91,7 +91,7 @@ return false;
 }
 
 
-function cultureMoribund()
+function cultureMoribund(nation)
 {
 return (nation.culturalHealth < .2);
 }
