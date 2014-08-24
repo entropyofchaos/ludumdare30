@@ -33,7 +33,8 @@
 			choices.innerHTML = '';
 			var i;
 			for (i = 0; i < stringArray.length; i++) {
-				addButton(stringArray[i], function(){fnctArray[i]();startNextTurn();} );
+				var funct = fnctArray[i];
+				addButton(stringArray[i], function(){funct();startNextTurn();} );
 			}
 		}
 		
