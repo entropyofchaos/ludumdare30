@@ -9,12 +9,12 @@ var isTrading = false;
 
 var nation1State = {}
 
-nation1State.food = .25;
+nation1State.food = .4;
 nation1State.culturalHealth = .5;
 nation1State.population = .25;  
 nation1State.militarization = .1;
 nation1State.approval = .5;
-nation1State.name = "Rothingrad";
+nation1State.name = "Rothengrad";
 nation1State.turnCount=0;
 nation1State.industry = .1;
 
@@ -29,9 +29,9 @@ nation1State.assimilationCounter =0.0;
 var nation2State = {}
 nation2State.food = .15;
 nation2State.culturalHealth = .9; //faith in the nation is keeping us strong
-nation2State.population = .25; //population can’t exceed food or famine
-nation2State.militarization = .2;
-nation2State.approval = .5;
+nation2State.population = .4; //population can’t exceed food or famine
+nation2State.militarization = .25;
+nation2State.approval = .3;
 nation2State.name = "Sauria";
 nation2State.turnCount = -1; //nextTurn() will be called at the start of the game.  default naiton is nation2State.  will increment turncounter to 0 before cycling to nation1State. 
 nation2State.industry = .6;
