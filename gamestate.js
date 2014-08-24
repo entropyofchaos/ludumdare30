@@ -31,7 +31,7 @@ nation2State.population = .25; //population can’t exceed food or famine
 nation2State.militarization = .2;
 nation2State.approval = .5;
 nation2State.name = "Sauria";
-nation2State.turnCount = 0;
+nation2State.turnCount = -1; //nextTurn() will be called at the start of the game.  default naiton is nation2State.  will increment turncounter to 0 before cycling to nation1State. 
 
 nation2State.upcomingEvents = [];
 nation2State.upcomingDecisions = [];
@@ -43,7 +43,7 @@ nation2State.assimilationCounter =0.0;
 var nations = [nation1State, nation2State];
 var currentNationVal = 0;
 
-var currentNation = nations[0];
+var currentNation = nations[1];
 
 var status = "";
 
