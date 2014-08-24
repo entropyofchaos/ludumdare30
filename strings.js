@@ -28,7 +28,7 @@ var assimilationStrings = [assimilationString1, assimilationString2, assimilatio
 
 
 //generates a unique game loss state string based on the current game state
-function lossString()
+function lossString(nation)
 {
 
 
