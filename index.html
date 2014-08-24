@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Ludum Dare 30</title>
+	<script src="ld30.js"></script> 
 	<script>
 		function inTheBeginning() {
 			document.getElementById("title").innerHTML = "In the beginning ...";
@@ -17,12 +18,17 @@
 			createOptions(strings, functs);
 		}
 		
+		// nextTurn returns an array
+		// array[0] = status string
+		// array[1] = array of string choices
+		// array[2] = funct array
+		
 		function createOptions(stringArray, fnctArray) {
 			var choices = document.getElementById("choices");
 			choices.innerHTML = '';
 			var i;
 			for (i = 0; i < stringArray.length; i++) {
-				addButton(stringArray[i], fnctArray[i]);
+				addButton(stringArray[i], fnctArray[i];nextTurn;);
 			}
 		}
 		
@@ -54,8 +60,6 @@
 	<ol id="choices"></ol>
 
 </div>
-
-<button type="button" onclick="test()">Try it</button>
 
 </body>
 </html>

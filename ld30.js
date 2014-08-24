@@ -30,7 +30,7 @@ nation2State.culturalHealth = .9; //faith in the nation is keeping us strong
 nation2State.population = .25; //population can’t exceed food or famine
 nation2State.militarization = .2;
 nation2State.approval = .5;
-nation2State.name = “Sauria”;
+nation2State.name = "Sauria";
 nation2State.turnCount = 0;
 
 nation2State.upcomingEvents = [];
