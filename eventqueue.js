@@ -33,7 +33,7 @@ function wrapDecision(decision)
 }
 
 
-function pushDecision()
+function pushDecision(decision)
 {
 	if(decision[DECISION_CAN_EXECUTE_FUN_INDEX]())
 	{
