@@ -1,4 +1,3 @@
-//population over 1.0 spills over to the other side
 //choice to trade; exchanges resources, increases approval for other side
 //event to end trade route 
 //grow crops or build fishing industry
@@ -6,6 +5,8 @@
 var fishPopulation = 1.0;
 var globalPollution = 0.0;
 var internationalRelations = .5;
+var isTrading = false; 
+
 var nation1State = {}
 
 nation1State.food = .25;
@@ -13,7 +14,7 @@ nation1State.culturalHealth = .5;
 nation1State.population = .25;  
 nation1State.militarization = .1;
 nation1State.approval = .5;
-nation1State.name = “Rothstein”;
+nation1State.name = "Rothstein";
 nation1State.turnCount=0;
 
 nation1State.upcomingEvents = [];
@@ -35,7 +36,6 @@ nation2State.turnCount = 0;
 nation2State.upcomingEvents = [];
 nation2State.upcomingDecisions = [];
 
-
 nation2State.famineCounter = 0;
 nation2State.riotCounter = 0.0; //turns in a row riots have gone on
 nation2State.assimilationCounter =0.0;
@@ -45,31 +45,56 @@ var currentNation = 0;
 
 var currentNation = nations[0];
 
-var status = “”;
+var status = "";
 
-var prologue = “”;
+var prologue = "";
+
+
+var currentDecisions=[];
 
 function addPotentialDecision(nation, turnToExecute, choiceString, canExecuteFun, statusString, executeFun)
 {
 
-nation.upcomingDecisions.push([turnToExecute, choiceString, canExecuteFun, statusString, executeFun]);
+	nation.upcomingDecisions.push([turnToExecute, choiceString, canExecuteFun, statusString, executeFun]);
 
 }
 
+
+var EVENT_TURN_INDEX = 0;
+var EVENT_FUNCTION_INDEX=1;
+var EVENT_DAY_STRING=2;
 
 function addUpcomingEvent(nation, onTurn, fToCall, dayString)
 {
-  nation.upcomingEvents.push([onTurn, fToCall, dayString]);
+	nation.upcomingEvents.push([onTurn, fToCall, dayString]);
 }
 
 
+
+//event is [turn, functionToCall, dayString]
 function fireEvent(event)
 {
+	
+	status += 
 
 }
 
+
+var DECISION_TURN_INDEX=0;
+var DECISION_CHOICE_STRING_INDEX=1;
+var DECISION_CAN_EXECUTE_FUN_INDEX=2;
+var DECISION_STATUS_STRING_INDEX=3;
+var DECISION_EXECUTE_FUN=4;
+
+//decision is [turn, choicestring, canExecuteFun, statusString, executeFun]
 function fireDecision(decision)
 {
+	if(decision[CAN_EXECUTE_FUN_INDEX]())
+	{
+	  
+	
+	}
+	
 	
 }
 
@@ -181,7 +206,8 @@ function cultureMoribund()
 
 function nextTurn()
 {	
-	status = “”;
+	currentDecisions=[];
+	status = "";
 	
 	currentNation.turnCount++;
 
