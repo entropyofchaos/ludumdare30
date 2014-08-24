@@ -41,9 +41,9 @@ nation2State.riotCounter = 0.0; //turns in a row riots have gone on
 nation2State.assimilationCounter =0.0;
 
 var nations = [nation1State, nation2State];
-var currentNationVal = 0;
+var currentNationVal = 1;
 
-var currentNation = nations[1];
+var currentNation = nations[currentNationVal];
 
 var status = "";
 
