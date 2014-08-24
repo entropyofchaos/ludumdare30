@@ -81,7 +81,7 @@ function checkForTriggeredEvents(nation)
   }
 }
 
-function checkForCurrentDecisions()
+function checkForCurrentDecisions(nation)
 {
 	for(i =0; i < nation.upcomingDecisions.length; i++)
 	{
