@@ -29,13 +29,9 @@ function fireEvent(event)
 
 function wrapDecision(decision)
 {
-	return function(){fireDecision(decision);};
+	return function(){pushDecision(decision);};
 }
 
-function fireDecision(decision)
-{
-
-}
 
 function pushDecision()
 {
