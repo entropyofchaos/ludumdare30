@@ -41,6 +41,35 @@ function approvalString(nation)
 }
 
 
+
+function relationsString(nation)
+{
+  otherNation = nations[(currentNationVal+1)%2].name;
+  
+  prefix = "Relations with "+otherNation+ " are ";
+  
+  if(internationalRelations >= .8)
+  {
+    return prefix + " excellent.";
+  }
+  else if(internationalRelations >= .6)
+  {
+    return prefix + " good."
+  }
+  else if(internationalRelations >= .4)
+  {
+    return prefix + " neutral.";
+  }
+  else if(internationalRelations >= 2)
+  {
+    return prefix + " strained.";
+  }
+  else
+  {
+    return prefix + " hostile.";
+  }
+}
+
 function appendOtherStatusStrings(nation)
 {
   if(cultureStrong(nation))
@@ -54,6 +83,9 @@ function appendOtherStatusStrings(nation)
   }
   
   status += approvalString(nation);
+  
+  status += relationsString(nation);
+  
   
 }
 
