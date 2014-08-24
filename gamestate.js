@@ -52,8 +52,6 @@ var prologue = "";
 
 var currentDecisions=[];
 
-
-
 function isFamine(nation)
 {
 	
@@ -65,8 +63,6 @@ function isFamine(nation)
 function isRiots(nation)
 {
 
- //riots start no matter what
-  
  var riotThresh=.1;
 
  if(nation.approval <= riotThresh)
@@ -102,6 +98,7 @@ function cultureMoribund()
 }
 
 
+//returns an array containing [paragraph, decisionstrings, decisionfunctions]
 function nextTurn()
 {	
 	currentDecisions=[];
@@ -163,6 +160,9 @@ function isLoss( nation )
 
 function lossString()
 {
+
+	
+
 }
 
 
