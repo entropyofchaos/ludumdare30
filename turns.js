@@ -1,28 +1,51 @@
-
-//returns an array containing [paragraph, decisionstrings, decisionfunctions]
-function nextTurn()
-{	
-	currentDecisions=[];
+function turnReset()
+{
+	currentDecisionStrings=[];
+	currentDecisionFunctions = [];
 	status = "";
-	
-	currentNation.turnCount++;
+}
 
-	currentNation = nations[(currentNationVal+1)%2];
 
+function pollCounters()
+{
 	if(isFamine(currentNation))
 	{
+	
+	  status += famineStrings[currentNation.famineCounter];
+		
 	  currentNation.famineCounter++;
 	}
 
 	if(isRiots(currentNation))
 	{
+	  status += riotStrings[currentNation.riotCounter];	
+	
 	  currentNation.riotCounter++;
 	}
 
 	if(cultureMoribund(currentNation))
 	{
+	  status += assimilationStrings[currentNation];
+		
 	  currentNation.assimilationCounter++;
 	}
+}
 
-	return ["Blah Blah", ["The only choice!"], [function(){boom()}]];
+
+//returns an array containing [paragraph, decisionstrings, decisionfunctions]
+function nextTurn()
+{	
+	turnReset();
+	
+	currentNation.turnCount++;
+	
+	currentNation = nations[(currentNationVal+1)%2];
+
+	checkForTriggeredEvents(currentNation);
+	
+	checkForCurrentDecisions();
+
+	pollCounters();
+	
+	return [status, currentDecisionStrings, currentDecisionFunctions];
 }
