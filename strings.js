@@ -11,21 +11,20 @@ var riotString3 = "Despite a strong show of force, you have been unable to suppr
 var riotStrings = [riotString1, riotString2, riotString3];
 
 
-var famineString1 = "Your people are starving.";
+var famineString1 = "Your people are hungry.";
 
-var famineString2 = "";
+var famineString2 = "Your people are starving.";
 
-var famineString3 = "";
+var famineString3 = "Severe famine has spread through your nation.";
 
 var famineStrings = [famineString1, famineString2, famineString3];
 
 
-var assimilationString1 = "The people's faith is weak.";
-var assimilationString2 = "";
-var assimilationString3 = "";
+var assimilationString2 = "The people's faith is shakened.";
+var assimilationString1 = "The people are losing touch with their roots.";
+var assimilationString3 = "The people feel completely alienated from their own culture.";
 
 var assimilationStrings = [assimilationString1, assimilationString2, assimilationString3];
-
 
 function approvalString(nation)
 {
@@ -63,5 +62,5 @@ function appendOtherStatusStrings(nation)
 function lossString(nation)
 {
 
-
+return "You have lost the game";
 }
