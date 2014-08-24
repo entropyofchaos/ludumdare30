@@ -47,5 +47,15 @@ function nextTurn()
 
 	pollCounters();
 	
+	if(isLoss(currentNation))
+	{
+	
+	  status += lossString(currentNation);
+	  
+	  currentDecisionStrings = [];
+	  currentDecisionFunctions = [];
+	  
+	}
+	
 	return [status, currentDecisionStrings, currentDecisionFunctions];
 }
