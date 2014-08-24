@@ -14,7 +14,7 @@ nation1State.culturalHealth = .5;
 nation1State.population = .25;  
 nation1State.militarization = .1;
 nation1State.approval = .5;
-nation1State.name = "Rothstein";
+nation1State.name = "Rothingrad";
 nation1State.turnCount=0;
 nation1State.industry = .1;
 

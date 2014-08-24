@@ -10,7 +10,7 @@ function startNextTurn() {
 	text.innerHTML = results[0];
 	createOptions(results[1], results[2]);
 	
-	if (currentNation.name == "Rothstein") {
+	if (currentNation.name == "Rothingrad") {
 		addAnImage("leader", "Rothstine.png", 237, 237); 
 	} else if (currentNation.name == "Sauria") {
 		addAnImage("leader", "Saurian.png", 237, 237);

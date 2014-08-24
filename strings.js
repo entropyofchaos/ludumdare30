@@ -1,6 +1,7 @@
 //game specific strings and string generator functions
 
-var prologue = ""; //prologue paragraph for the game
+var prologue = "A long long time ago, in a land far far away, there were two mighty kingdoms, Sauria and Rothingrad. "
+				+ " Sauria was run by High Raptor Lord Saurian III. Rothingrad was run by Shifu Rothstine." ;//prologue paragraph for the game
 
 var riotString1 = "The people are discontented.  Riots have begun.";
 
