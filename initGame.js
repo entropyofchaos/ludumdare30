@@ -9,7 +9,7 @@ function initGame()
 	
 	addPotentialDecision(nations[1], 0, "Expand your fishing industry?", function(){return true}, "<br><br>You can expand your fisihing industrying, however " 
 	+ "doing so could potentially cause overfisihing to occur, lowering the amount of available fish around the world.", function(){stop('intoTheme');stop('raptorGrowl');
-	alert("So long and thanks for all the fish.");play(fish)});
+	play('fish');alert("So long and thanks for all the fish.");});
 	
 	addPotentialDecision(nations[1], 0, "Expand your farm production?", function(){return true}, "<br><br>Alternativly, you can expand your farm production. However " 
 	+ "this may take three cycles of the sun to complete.",function(){stop('intoTheme');stop('raptorGrowl');alert("Yay, more food.")});
