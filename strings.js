@@ -47,8 +47,8 @@ function approvalString(nation)
 
 function otherNationName()
 {
-	
-  return  otherNation = nations[(currentNationVal+1)%2].name;
+
+  return nations[(currentNationVal+1)%2].name;
   
 }
 
