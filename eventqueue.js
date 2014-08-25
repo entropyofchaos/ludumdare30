@@ -65,6 +65,8 @@ function eraseDecision(nation, event)
 
 function checkForTriggeredEvents(nation)
 {
+	
+  var deleteList = [];
   for(i =0; i < nation.upcomingEvents.length; i++)
   {
 	event = nation.upcomingEvents[i];
@@ -72,13 +74,22 @@ function checkForTriggeredEvents(nation)
 	if(event[0] <= nation.turnCount)
 	{	
 	   fireEvent(event);
-	   eraseEvent(nation, event);
+	   //eraseEvent(nation, event);
+	   deleteList.push(i);
 	}	
   }
+  
+  for(i=deleteList.length-1; i >=0; i--)
+  {
+       eraseEvent(nation,nation.upcomingEvents[deleteList[i]]);
+  }
+  
 }
 
 function checkForCurrentDecisions(nation)
 {
+	
+	var deleteList = [];
 	for(i =0; i < nation.upcomingDecisions.length; i++)
 	{
 		decision = nation.upcomingDecisions[i];
@@ -86,7 +97,12 @@ function checkForCurrentDecisions(nation)
 		if(decision[0] <= nation.turnCount)
 		{
 			pushDecision(decision);
-			eraseDecision(nation,decision); 
+			deleteList.push(i);
 		}
+	}
+	
+	for(i=deleteList.length-1; i >=0; i--)
+	{
+		eraseDecision(nation,nation.upcomingDecisions[deleteList[i]]);
 	}
 }
