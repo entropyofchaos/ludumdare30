@@ -53,6 +53,47 @@ var status = "";
 var currentDecisionStrings=[];
 var currentDecisionFunctions = [];
 
+function makeTradeEvents()
+{
+
+ var rivalNation = otherNation();
+ var industryDiff = currentNation.industry - otherNation.industry;
+ var foodDiff = currentNation.food - otherNation.food;
+ 
+ var isSurplusCurrent = currentNation.food > currentNation.population;
+ var isSurplusRival = rivalNation.food > rivalNation.population;
+
+ if(Math.sign(industryDiff) == Math.sign(foodDiff))
+ {
+   //enqueue no trade event
+   if(Math.sign(industryDiff) <= 0.0){
+   	addUpcomingEvent(currentNation, 0, function(){}, "No trade with "+rivalNation.name+" has occurred since you have nothing they want. ");	
+   }
+   else
+   {	
+   	addUpcomingEvent(currentNation, 0, function(){}, "No trade with "+rivalNation.name+" has occurred since they have nothing you want. ");
+   }
+ }
+ else
+ {
+ 	
+   if(Math.sign(industryDiff) > 0.0)
+   {
+   	addUpcomingEvent(currentNation,0,tradeIndustryForFood, "You have traded industrial goods for food. ");
+   }
+   else
+   {
+   	addUpcomingEvent(currentNation, 0, tradeFoodForIndustry, "You have traded food for products from "+rivalNation.name);
+   }
+   	
+ }
+
+ //increase relations and approval
+ 
+ //addUpcomingEvent(currentNation, 0, tradeFunction, "Trade with "+rival+" has ended. ");
+ //Math.abs();
+
+}
 
 
 function otherNation()
@@ -70,7 +111,7 @@ function enqueueStatusTriggers(currentNation)
   if ((currentNation.militarization / rival.militarization) > 1.25 )
   {
      
-     var milstr = "International relations have been damaged as a result of your military presence. However, your people feel secure."
+     var milstr = "International relations have been strained slightly due to the strength of your military presence. However, your people feel secure. "
  
      function milFunction(){ 
      	internationalRelations -=.1; 
@@ -80,9 +121,9 @@ function enqueueStatusTriggers(currentNation)
      addUpcomingEvent(currentNation, 0, milFunction, milstr);
   	
   }
-  else
+  else if( ((currentNation.militarization / rival.militarization) <= (1.0 / 1.25) ) )
   {
-     var milstr = "Your national security is much weaker than " + otherNationName() + " Your political rivals call you weak. ";
+     var milstr = "Your national security is much weaker than " + otherNationName() + ".  Your political rivals call you weak. ";
      
      function milFunction(){ 
      	currentNation.approval -= .1;
@@ -90,6 +131,22 @@ function enqueueStatusTriggers(currentNation)
      
      addUpcomingEvent(currentNation, 0, milFunction, milstr);
   
+  }
+  
+  if(isTrading)
+  {
+  	if(!canTrade())
+  	{
+  	  function tradeFunction(){
+  	  	trading  = false;
+  	  }
+  	  addUpcomingEvent(currentNation, 0, tradeFunction, "Trade with "+rival+" has ended. ");
+  	}else
+  	{
+  	  
+  	  makeTradeEvents();
+  	  
+  	}
   }
 	
 	
