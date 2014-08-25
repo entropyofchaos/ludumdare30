@@ -22,7 +22,7 @@ function pollCounters()
 	  if(currentNation.famineCounter)
 	  {
 		 
-		 currentNation.approval += .25;
+		 currentNation.approval += .1;
 		 status += "The famine has ended. ";
 		 
 	  }
@@ -63,7 +63,7 @@ function pollCounters()
 	  if(currentNation.riotCounter)
 	  {
 		 
-		 currentNation.approval += .25;
+		 currentNation.approval += .1;
 		 status += "The riots have been suppressed. ";
 		 
 	  }

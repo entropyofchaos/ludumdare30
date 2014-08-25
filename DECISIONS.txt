@@ -11,7 +11,7 @@ aid?
 
 TURN 1 SAURIA
 fishing 
-—farm
+farm
 raid 
 
 

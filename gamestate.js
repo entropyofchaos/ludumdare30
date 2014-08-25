@@ -91,10 +91,26 @@ function makeTradeEvents()
  var industryDiff = currentNation.industry - otherNation.industry;
  var foodDiff = currentNation.food - otherNation.food;
  
- var isSurplusCurrent = currentNation.food > currentNation.population;
- var isSurplusRival = rivalNation.food > rivalNation.population;
+ //most basic model imaginable. 
+ 
+ if(currentNation.food < rivalNation.food)
+ {
+	addUpcomingEvent(currentNation,0,function(){}, "You have traded industrial goods for food. ");	
+	currentNation.tradedFood += .25;
+ }
+ else
+ {
+	addUpcomingEvent(currentNation, 0, function(){}, "You have traded food for products from "+rivalNation.name+". ");
+	currentNation.tradedIndustry += .25;
+ }
+ 
+ 
+ //var isSurplusCurrent = currentNation.food > currentNation.population;
+ //var isSurplusRival = rivalNation.food > rivalNation.population;
 
- if(sign(industryDiff) == sign(foodDiff))
+ 
+
+ /*if(sign(industryDiff) == sign(foodDiff))
  {
    //enqueue no trade event
    if(sign(industryDiff) <= 0.0){
@@ -117,7 +133,7 @@ function makeTradeEvents()
    	addUpcomingEvent(currentNation, 0, tradeFoodForIndustry, "You have traded food for products from "+rivalNation.name);
    }
    	
- }
+ }*/
 
  //increase relations and approval
  
