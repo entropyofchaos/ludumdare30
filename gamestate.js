@@ -18,6 +18,9 @@ nation1State.name = "Rothingrad";
 nation1State.turnCount=0;
 nation1State.industry = .1;
 
+nation1State.tradedFood = 0.0;
+nation1State.tradedIndustry = 0.0;
+
 
 nation1State.upcomingEvents = [];
 nation1State.upcomingDecisions = [];
@@ -28,13 +31,16 @@ nation1State.assimilationCounter =0.0;
 
 var nation2State = {}
 nation2State.food = .15;
-nation2State.culturalHealth = .9; //faith in the nation is keeping us strong
-nation2State.population = .4; //population can’t exceed food or famine
+nation2State.culturalHealth = .9; 
+nation2State.population = .4; 
 nation2State.militarization = .25;
 nation2State.approval = .3;
 nation2State.name = "Sauria";
 nation2State.turnCount = -1; //nextTurn() will be called at the start of the game.  default naiton is nation2State.  will increment turncounter to 0 before cycling to nation1State. 
 nation2State.industry = .6;
+
+nation2State.tradedFood = 0.0;
+nation2State.tradedIndustry = 0.0;
 
 nation2State.upcomingEvents = [];
 nation2State.upcomingDecisions = [];
@@ -156,7 +162,7 @@ function enqueueStatusTriggers(currentNation)
 function isFamine(nation)
 {
 	
-  return nation.food < nation.population;
+  return (nation.food + nation.tradedFood) < nation.population;
 
 }
 
