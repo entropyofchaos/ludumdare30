@@ -60,10 +60,11 @@ function nextTurn()
 	enqueueStatusTriggers(currentNation);
 
 	checkForTriggeredEvents(currentNation);
+
+	appendOtherStatusStrings(currentNation);
 	
 	checkForCurrentDecisions(currentNation);
 
-	appendOtherStatusStrings(currentNation);
 
 	pollCounters();
 	
