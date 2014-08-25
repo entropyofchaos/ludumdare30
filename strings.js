@@ -62,9 +62,9 @@ return currentNation.name;
 
 function relationsString(nation)
 {
-  otherNation = nations[(currentNationVal+1)%2].name;
+  var rival = nations[(currentNationVal+1)%2].name;
   
-  prefix = "Relations with "+otherNation+ " are ";
+  prefix = "Relations with "+rival+ " are ";
   
   if(internationalRelations >= .8)
   {
