@@ -12,7 +12,7 @@ aid?
 TURN 1 SAURIA
 fishing 
 farm
-—raid— 
+raid 
 
 
 TURN 2 ROTHINGRAD
@@ -23,12 +23,12 @@ military+
 TURN 2 SAURIA
 --commit large part of industry to military?
 —commit large part of industry to more efficient food production?  
-—raid rothingrad for food? 
+raid rothingrad for food? 
 
 TURN 3 ROTHINGRAD
 
 TURN 3 SAURIA
-—raid rothingrad for food? 
+raid rothingrad for food? 
 
 Turn 4: 
 Game ends.  

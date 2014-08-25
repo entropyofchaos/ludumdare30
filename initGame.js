@@ -3,6 +3,25 @@ function receiveFishFunction()
 	currentNation.food += .25;	
 }
 
+
+function raidFunction()
+{
+	
+	internationalRelations -= .2;
+	currentNation.food += .15;
+	otherNation().food -= .15;
+	
+}
+
+function raidDecision()
+{
+	
+	addUpcomingEvent(currentNation, 0, raidFunction, "You annexed farmland from "+otherNation().name+", improving your food situation but greatly hurting your diplomacy situation. ");
+	addUpcomingEvent(otherNation(), 0, function(){}, currentNation.name + " has annexed some of your farmland.  ");
+	
+}
+
+
 function reduceFoodSupply()
 {
 	currentNation.food -= .2;
@@ -21,8 +40,6 @@ function fishingDecision()
 
 function sendAidFunction()
 {
-	//addUpcomingEvent(nations[1], 0, function(){}, "SAURIA SAURIA SAURIA");
-	
 	addUpcomingEvent(otherNation(), 0, receiveAidFunction, "You have received food aid from Rothingrad.  ");	
 }
 
@@ -66,7 +83,8 @@ function intialIndustryExpansion()
 
 function tradeDecision()
 {
-	
+	isTrading = true;
+	//function that checks for status triggers handles the actual trading mechanic
 }
 
 function initGame()
@@ -81,7 +99,7 @@ function initGame()
 	
 	addPotentialDecision(nations[0], 0, "Expand your military?", function(){return true;}, "<br><br>You could start expanding your military, although your industrial capacity is weak at the moment and you risk an arms race with Sauria. ", initialMilitarization);
 	
-	addPotentialDecision(nations[0], 0, "Send aid to Sauria?", function(){return true;}, "<br><br>However, Sauria has been suffering from a long famine.  You could send aid instead to  end the humanitarian (reptilitarian?) crisis and help improve foreign relations.", sendAidFunction);
+	addPotentialDecision(nations[0], 0, "Send aid to Sauria?", function(){return true;}, "<br><br>However, Sauria has been suffering from a long famine.  You could send aid instead to  provide temporary relief to the humanitarian (reptilitarian?) crisis and help improve foreign relations.", sendAidFunction);
 	
 	addPotentialDecision(nations[0], 0, "Invest in industry?", function(){return true;}, "<br><br>Finally, you could invest in building up your industry, whether you need it for military or trade goods. ", intialIndustryExpansion);
 	
@@ -96,6 +114,12 @@ function initGame()
 	
 	addPotentialDecision(nations[1], 0, "Expand your farm production?", function(){return true}, "<br><br>Alternatively, you can expand your farm production. However " 
 	+ "this may take three cycles of the sun to complete.",function(){stop('intoTheme');stop('raptorGrowl');});
+	
+	
+	for( i = 0; i < 3; i++){
+		addPotentialDecision(nations[1], i, "Annex Rothingradian farmland?", function(){return overMilitarized(nations[1], nations[0]);}, "<br><br>Finally, your armies are strong.  You can simply annex some farmland from Rothingrad and deal with the consequences later. " , raidDecision);
+	}
+	
 }
 
 function play(song) 

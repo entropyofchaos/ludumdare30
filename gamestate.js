@@ -68,6 +68,14 @@ function isWin()
 }
 
 
+
+function sign(variable)
+{
+	if(!variable)return 0;
+	if(variable>0) return 1;
+	if(variable < 0)return -1;
+}
+
 function isSurplus(nation)
 {
 	return nation.food > nation.population;
@@ -83,10 +91,10 @@ function makeTradeEvents()
  var isSurplusCurrent = currentNation.food > currentNation.population;
  var isSurplusRival = rivalNation.food > rivalNation.population;
 
- if(Math.sign(industryDiff) == Math.sign(foodDiff))
+ if(sign(industryDiff) == sign(foodDiff))
  {
    //enqueue no trade event
-   if(Math.sign(industryDiff) <= 0.0){
+   if(sign(industryDiff) <= 0.0){
    	addUpcomingEvent(currentNation, 0, function(){}, "No trade with "+rivalNation.name+" has occurred since you have nothing they want. ");	
    }
    else
@@ -97,7 +105,7 @@ function makeTradeEvents()
  else
  {
  	
-   if(Math.sign(industryDiff) > 0.0)
+   if(sign(industryDiff) > 0.0)
    {
    	addUpcomingEvent(currentNation,0,tradeIndustryForFood, "You have traded industrial goods for food. ");
    }
@@ -172,7 +180,7 @@ function enqueueStatusTriggers(currentNation)
   	  function tradeFunction(){
   	  	trading  = false;
   	  }
-  	  addUpcomingEvent(currentNation, 0, tradeFunction, "Trade with "+rival+" has ended. ");
+  	  addUpcomingEvent(currentNation, 0, tradeFunction, "Trade with "+rival.name+" has ended. ");
   	}else
   	{
   	  
