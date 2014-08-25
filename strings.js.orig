@@ -3,9 +3,9 @@
 var prologue = "A long long time ago, in a land far far away, there were two mighty kingdoms, Sauria and Rothingrad. "
 				+ " Sauria was run by High Raptor Lord Saurian III. Rothingrad was run by Shifu Rothstine.  " ;//prologue paragraph for the game
 
-var rothingrad = "You are Shifu Rothstine. Doesn't your portrait look lovely. "
+var rothingrad = "You are Shifu Rothstine. Doesn't your portrate look lovly. "
 
-var saurian = "You are High Raptor Lord Saurian III. What nice shiny teeth you have.  "
+var saurian = "You are High Raptor Lord Saurian III. What nice teeth you have.  "
 
 var riotString1 = "The people are discontented.  Riots have begun.  ";
 
