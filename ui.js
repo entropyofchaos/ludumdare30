@@ -21,6 +21,16 @@ function startNextTurn() {
 	turn.innerHTML = currentNation.name + ": Turn " + (currentNation.turnCount + 1);
 }
 
+function buttonFactory(input)
+{
+	var tmp = input;
+	return function()
+	{
+		tmp();
+		startNextTurn();
+	}	
+}
+
 function createOptions(stringArray, fnctArray) {
 	var choices = document.getElementById("choices");
 	choices.innerHTML = '';
@@ -28,7 +38,7 @@ function createOptions(stringArray, fnctArray) {
 	for (i = 0; i < stringArray.length; i++) {
 		var fnct = fnctArray[i];
 		if (typeof fnct != 'undefined') {
-			addButton(stringArray[i], function(){(fnctArray[i]());startNextTurn();});
+			addButton(stringArray[i], buttonFactory(fnct));
 		} else {
 			addButton(stringArray[i], function(){startNextTurn();});
 		}
