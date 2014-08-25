@@ -1,3 +1,24 @@
+function receiveFishFunction()
+{
+	currentNation.food += .25;	
+}
+
+function reduceFoodSupply()
+{
+	currentNation.food -= .2;
+	otherNation.food -= .2;
+	internationalRelations -= .2;
+	
+	addUpcomingEvent(otherNation(), 0, function(){}, "Sauria's overfishing has damaged the ocean's ecosystem, reducing the amount of food available for Rothingrad as well. ");
+}
+
+function fishingDecision()
+{
+	addUpcomingEvent(currentNation, 0, receiveFishFunction, "You have greatly expanded your fishing industry, helping greatly with your food shortage. ");
+	addUpcomingEvent(currentNation, currentNation.turnCount + 2, reduceFoodSupply, "Overfishing has endangered the food supply.  Pundits blame lax regulation in Sauria. ");
+}
+
+
 function sendAidFunction()
 {
 	//addUpcomingEvent(nations[1], 0, function(){}, "SAURIA SAURIA SAURIA");
@@ -71,7 +92,7 @@ function initGame()
 	
 	addPotentialDecision(nations[1], 0, "Expand your fishing industry?", function(){return true}, "<br><br>You can expand your fishing industry, however " 
 	+ "doing so could potentially cause overfishing to occur, lowering the amount of available fish around the world.", function(){stop('intoTheme');stop('raptorGrowl');
-	play('fish');});
+	play('fish');fishingDecision();});
 	
 	addPotentialDecision(nations[1], 0, "Expand your farm production?", function(){return true}, "<br><br>Alternatively, you can expand your farm production. However " 
 	+ "this may take three cycles of the sun to complete.",function(){stop('intoTheme');stop('raptorGrowl');});

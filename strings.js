@@ -30,7 +30,7 @@ var assimilationString3 = "The people feel completely alienated from their own c
 
 var assimilationStrings = [assimilationString1, assimilationString2, assimilationString3];
 
-var winString = "<br><br>You have kept Sauria and Rothingrad in harmony for a reasonable amount of time, and the fates that weave the fabric of destiny have run out of thread.<br><br> You're Winner!";
+var winString = "<br><br>You have kept Sauria and Rothingrad from collapsing for a reasonable amount of time, and the fates that weave the fabric of destiny have run out of thread.  Maybe they'll get some and add more to this game!  Check back soon!<br><br> You're Winner!";
 
 function approvalString(nation)
 {
@@ -93,7 +93,7 @@ function appendOtherStatusStrings(nation)
 {
   if(cultureStrong(nation))
   {
-    status += "Pride in the nation is keeping your people united.  "
+    status += "Your people have a sense of cultural unity.  "
   }
   
   if(industryStrong(nation))
@@ -124,21 +124,21 @@ function lossString(nation)
   
   if(internationalRelations<=0)
   {
-    return "Relations between " + nation1State.name + " and " + nation2State.name + " have been strained to the point of war.  It may be years before the damage can be fully repaired. <br><br> GAME OVER";
+    return "<br><br>Relations between " + nation1State.name + " and " + nation2State.name + " have been strained to the point of war.  It may be years before the damage can be fully repaired. <br><br> GAME OVER";
   }
     
   if( nation.riotCounter >=3)
   {
-    return "Discontent among the people has grown into a full scale revolution.  Your people have overthrown you and replaced you with someone who can get the job done better. <br><br> GAME OVER"
+    return "<br><br>Discontent among the people has grown into a full scale revolution.  Your people have overthrown you and replaced you with someone who can get the job done better. <br><br> GAME OVER"
   }
   
   if(nation.famineCounter >=3 )
   {
-	  return "Widespread starvation has spread throughout the land.  Foreign governments seize upon the tragedy to intervene in your affairs and remove you from power. <br><br>GAME OVER";
+	  return "<br><br>Widespread starvation has spread throughout the land.  Foreign governments seize upon the tragedy to intervene in your affairs and remove you from power. <br><br>GAME OVER";
   }
   
   otherNation = nations[(currentNationVal+1)%2].name;
 
-  return "Your nation's cultural values have eroded and been replaced with those of " + otherNation+ ".  "+otherNation + "'s political influence over your people has rendered you as little more than a tributary of their great empire.  <BR><br> GAME OVER";
+  return "<br><br>Your nation's cultural values have eroded and been replaced with those of " + otherNation+ ".  "+otherNation + "'s political influence over your people has rendered you as little more than a tributary of their great empire.  <BR><br> GAME OVER";
   
 }

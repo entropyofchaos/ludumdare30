@@ -2,7 +2,11 @@
 //event to end trade route 
 //grow crops or build fishing industry
 
-var fishPopulation = 1.0;
+///\todo : screw the modeling for now
+//var fishPopulation = 1.0;
+
+var fishingCounter = 0;
+
 var globalPollution = 0.0;
 var internationalRelations = .5;
 var isTrading = false; 
