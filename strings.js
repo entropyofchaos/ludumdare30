@@ -41,6 +41,19 @@ function approvalString(nation)
   return "";
 }
 
+function otherNationName()
+{
+	
+  return  otherNation = nations[(currentNationVal+1)%2].name;
+  
+}
+
+function nationName()
+{
+return currentNation.name;
+	
+}
+
 
 
 function relationsString(nation)
