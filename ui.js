@@ -24,10 +24,11 @@ function startNextTurn() {
 function createOptions(stringArray, fnctArray) {
 	var choices = document.getElementById("choices");
 	choices.innerHTML = '';
+	var funct = [];
 	var i;
 	for (i = 0; i < stringArray.length; i++) {
-		var funct = fnctArray[i];
-		addButton(stringArray[i], function(){funct();startNextTurn();} );
+		funct[i] = fnctArray[i];
+		addButton(stringArray[i], function(){(funct[i])();startNextTurn();} );
 	}
 }
 
