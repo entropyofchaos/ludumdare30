@@ -3,6 +3,10 @@
 var prologue = "A long long time ago, in a land far far away, there were two mighty kingdoms, Sauria and Rothingrad. "
 				+ " Sauria was run by High Raptor Lord Saurian III. Rothingrad was run by Shifu Rothstine.  " ;//prologue paragraph for the game
 
+var rothingrad = "You are Shifu Rothstine. Doesn't your portrate look lovly. "
+
+var saurian = "You are High Raptor Lord Saurian III. What nice teeth you have.  "
+
 var riotString1 = "The people are discontented.  Riots have begun.  ";
 
 var riotString2 = "The rioting has continued.  The violence has spread far and wide.  Your forces are mobilizing in an effort to maintain control.  ";
@@ -64,11 +68,11 @@ function relationsString(nation)
   
   if(internationalRelations >= .8)
   {
-    return prefix + " excellent.";
+    return prefix + " excellent.  ";
   }
   else if(internationalRelations >= .6)
   {
-    return prefix + " good."
+    return prefix + " good.  "
   }
   else if(internationalRelations >= .4)
   {
@@ -76,11 +80,11 @@ function relationsString(nation)
   }
   else if(internationalRelations >= 2)
   {
-    return prefix + " strained.";
+    return prefix + " strained.  ";
   }
   else
   {
-    return prefix + " hostile.";
+    return prefix + " hostile.  ";
   }
 }
 
