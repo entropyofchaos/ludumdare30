@@ -12,26 +12,47 @@ function pollCounters()
 	{
 	  status += famineStrings[currentNation.famineCounter];
 		
+	  currentNation.approval -= .1;
+		
 	  currentNation.famineCounter++;
 	}
 	else
 	{
+		
+	  if(currentNation.famineCounter)
+	  {
+		 
+		 currentNation.approval += .1;
+		 status += "The famine has ended. ";
+		 
+	  }
+		
 	  currentNation.famineCounter=0;
 	}
 	
 
 	if(isRiots(currentNation))
 	{
-	  status += riotStrings[currentNation.riotCounter];	
+	  status += riotStrings[currentNation.riotCounter];
+	  
+	  currentNation.approval -= .1;
 	
 	  currentNation.riotCounter++;
 	}
 	else
 	{
+		
+	  if(currentNation.riotCounter)
+	  {
+		 
+		 currentNation.approval += .1;
+		 status += "The riots have been suppressed. ";
+		 
+	  }
+		
 	  currentNation.riotCounter=0;
 	}
 	
-
 	if(cultureMoribund(currentNation))
 	{
 	  status += assimilationStrings[currentNation];
@@ -40,14 +61,29 @@ function pollCounters()
 	}
 	else
 	{
+		
+	 if(currentNation.assimilationCounter)
+	  {
+		 
+		 currentNation.approval += .1;
+		 status += "The people have a renewed sense of their values. ";
+		 
+	  }
 	  currentNation.assimilationCounter=0;
 	}
 }
 
 
+
 //returns an array containing [paragraph, decisionstrings, decisionfunctions]
 function nextTurn()
 {	
+	nation1State.tradedFood =0;
+	nation2State.tradedFood=0;
+	
+	nation1State.tradedIndustry =0;
+	nation2State.tradedIndustry=0;
+
 	turnReset();
 	
 	currentNation.turnCount++;
@@ -75,6 +111,15 @@ function nextTurn()
 	  currentDecisionStrings = [];
 	  currentDecisionFunctions = [];
 	  
+	}
+	else if(isWin())
+	{
+	
+		status += winString;
+		
+		currentDecisionStrings = [];
+		currentDecisionFunctions = [];
+	
 	}
 	else
 	{	//if we're not ending the game we must always have an option to continue

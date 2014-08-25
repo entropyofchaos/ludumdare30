@@ -1,7 +1,7 @@
 //game specific strings and string generator functions
 
 var prologue = "A long long time ago, in a land far far away, there were two mighty kingdoms, Sauria and Rothingrad. "
-				+ " Sauria was run by High Raptor Lord Saurian III. Rothingrad was run by Shifu Rothstine. <br><br>Rothstine's people are content, lead peaceful lives, and excel at agriculture.<br><br>Saurian's people are industrious, take pride in their military, and have strong cultural convictions.  However, they are inherently mistrustful of authority and have tragically suffered from a long famine and overpopulation.  <br><br>" ;//prologue paragraph for the game
+				+ " Sauria was run by High Raptor Lord Saurian III. Rothingrad was run by Shifu Rothstine. <br><br>Rothstine's people are content, lead peaceful lives, and excel at agriculture and fishing.<br><br>Saurian's people are industrious, take pride in their military, and have strong cultural convictions.  However, they are inherently mistrustful of authority and have tragically suffered from a long famine and overpopulation.  <br><br>" ;//prologue paragraph for the game
 
 var rothingrad = "You are Shifu Rothstine. Doesn't your portrait look lovely?<br><br>"
 
@@ -29,6 +29,8 @@ var assimilationString1 = "The people are losing touch with their roots.  ";
 var assimilationString3 = "The people feel completely alienated from their own culture.  ";
 
 var assimilationStrings = [assimilationString1, assimilationString2, assimilationString3];
+
+var winString = "<br><br>You have kept Sauria and Rothingrad in harmony for a reasonable amount of time, and the fates that weave the fabric of destiny have run out of thread.<br><br> You're Winner!";
 
 function approvalString(nation)
 {

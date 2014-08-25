@@ -1,3 +1,53 @@
+function sendAidFunction()
+{
+	//addUpcomingEvent(nations[1], 0, function(){}, "SAURIA SAURIA SAURIA");
+	
+	addUpcomingEvent(otherNation(), 0, receiveAidFunction, "You have received food aid from Rothingrad.  ");	
+}
+
+function receiveAidFunction()
+{
+	currentNation.foodFromTrade += .15;
+}
+
+function initialMilitarization()
+{
+	currentNation.militarization = .25;
+	
+	addUpcomingEvent(currentNation, 0, function(){}, "You have expanded your military presence. ");
+	
+}
+
+function secondaryMilitarization()
+{
+	currentNation.militarization = otherNation().militarization + .1;
+}
+
+function secondaryMilitarizationWeak()
+{
+	currentNation.militarization = otherNation().militarization;
+}
+
+
+function intialIndustryExpansion()
+{
+	currentNation.industry = .4;
+	addUpcomingEvent(currentNation, 0, function(){}, "You have greatly expanded your industry. ");
+	
+	var secondaryMilitarizationStr = "You can leverage the newfound strength of your industry to greatly expand your military over Sauria's. ";
+	var seondaryMilitarizationWeakStr = "Alternatively, you can just match their strength. ";
+
+	addPotentialDecision( currentNation, 0, "Expand your military greatly?", function(){return true;}, secondaryMilitarizationStr, secondaryMilitarization);
+	addPotentialDecision( currentNation, 0, "Match Sauria's military?", function(){return true;}, seondaryMilitarizationWeakStr, secondaryMilitarizationWeak);
+	
+}
+
+
+function tradeDecision()
+{
+	
+}
+
 function initGame()
 {
   
@@ -8,11 +58,14 @@ function initGame()
 	addUpcomingEvent(nations[1], 0, function(){play('intoTheme');play('raptorGrowl');}, saurian);
 	
 	
-	addPotentialDecision(nations[0], 0, "Expand your military?", function(){return true;}, "<br><br>You could start expanding your military, although your industrial capacity is weak at the moment and you risk an arms race with Sauria. ", function(){});
+	addPotentialDecision(nations[0], 0, "Expand your military?", function(){return true;}, "<br><br>You could start expanding your military, although your industrial capacity is weak at the moment and you risk an arms race with Sauria. ", initialMilitarization);
 	
-	addPotentialDecision(nations[0], 0, "Send aid to Sauria?", function(){return true;}, "<br><br>However, Sauria has been suffering from a long famine.  You could send aid instead to  end the humanitarian (reptilitarian?) crisis and help improve foreign relations.", function(){});
+	addPotentialDecision(nations[0], 0, "Send aid to Sauria?", function(){return true;}, "<br><br>However, Sauria has been suffering from a long famine.  You could send aid instead to  end the humanitarian (reptilitarian?) crisis and help improve foreign relations.", sendAidFunction);
 	
-	addPotentialDecision(nations[0], 0, "Invest in industry?", function(){return true;}, "<br><br>Finally, you could invest in building up your industry, whether you need it for military or trade goods. ", function(){});
+	addPotentialDecision(nations[0], 0, "Invest in industry?", function(){return true;}, "<br><br>Finally, you could invest in building up your industry, whether you need it for military or trade goods. ", intialIndustryExpansion);
+	
+	///\todo only allow trade if not already trading in general. 
+	addPotentialDecision(nations[0], 1, "Open trade with Sauria?", canTrade, "<br><br>Your ambassadors have reported that a new trade agreement with Sauria is on the table. ", tradeDecision);
 	
 	/////////////////////
 	

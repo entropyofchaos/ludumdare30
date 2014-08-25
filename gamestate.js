@@ -33,7 +33,7 @@ nation2State.food = .15;
 nation2State.culturalHealth = .9; 
 nation2State.population = .4; 
 nation2State.militarization = .25;
-nation2State.approval = .3;
+nation2State.approval = .35;
 nation2State.name = "Sauria";
 nation2State.turnCount = -1; //nextTurn() will be called at the start of the game.  default naiton is nation2State.  will increment turncounter to 0 before cycling to nation1State. 
 nation2State.industry = .6;
@@ -57,6 +57,12 @@ var status = "";
 
 var currentDecisionStrings=[];
 var currentDecisionFunctions = [];
+
+function isWin()
+{
+	return currentNation.turnCount == 3;
+}
+
 
 function isSurplus(nation)
 {
