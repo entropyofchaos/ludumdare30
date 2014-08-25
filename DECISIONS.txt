@@ -1,0 +1,43 @@
+
+Possible Decisions: 
+some do not occur in every play through.
+I want at least one decision possible on every player’s turn.
+ dashes in front of decision mean not implemented yet. 
+
+TURN 1 ROTHINGRAD
+military? 
+industry? 
+aid? 
+
+TURN 1 SAURIA
+fishing 
+farm
+—raid— 
+
+
+TURN 2 ROTHINGRAD
+trade
+military++
+military+
+
+TURN 2 SAURIA
+--commit large part of industry to military?
+—commit large part of industry to more efficient food production?  
+—raid rothingrad for food? 
+
+TURN 3 ROTHINGRAD
+
+TURN 3 SAURIA
+—raid rothingrad for food? 
+
+Turn 4: 
+Game ends.  
+
+
+TODO LIST: 
+missionaries, purpose of culture? 
+DISEASE
+
+population growth: if you have a food surplus
+
+efforts to reduce pollution?
