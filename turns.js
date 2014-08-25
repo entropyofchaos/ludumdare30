@@ -56,6 +56,9 @@ function nextTurn()
 	
 	currentNation = nations[currentNationVal];
 
+	//instant events
+	enqueueStatusTriggers(currentNation);
+
 	checkForTriggeredEvents(currentNation);
 	
 	checkForCurrentDecisions(currentNation);
