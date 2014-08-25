@@ -53,6 +53,49 @@ var status = "";
 var currentDecisionStrings=[];
 var currentDecisionFunctions = [];
 
+
+
+function otherNation()
+{
+  return nations[(currentNationVal +1 )%2];
+}
+
+
+function enqueueStatusTriggers(currentNation)
+{
+	
+  rival = otherNation();
+  
+  //check for events that should trigger based on the current state machine
+  if ((currentNation.militarization / rival.militarization) > 1.25 )
+  {
+     
+     var milstr = "International relations have been damaged as a result of your military presence. However, your people feel secure."
+ 
+     function milFunction(){ 
+     	internationalRelations -=.1; 
+     	currentNation.approval += .1;
+     }
+  
+     addUpcomingEvent(currentNation, 0, milFunction, milstr);
+  	
+  }
+  else
+  {
+     var milstr = "Your national security is much weaker than " + otherNationName() + " Your political rivals call you weak. ";
+     
+     function milFunction(){ 
+     	currentNation.approval -= .1;
+     }
+     
+     addUpcomingEvent(currentNation, 0, milFunction, milstr);
+  
+  }
+	
+	
+}
+
+
 function isFamine(nation)
 {
 	
