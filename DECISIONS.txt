@@ -11,7 +11,7 @@ aid?
 
 TURN 1 SAURIA
 fishing 
-farm
+—farm
 raid 
 
 
@@ -26,6 +26,7 @@ TURN 2 SAURIA
 raid rothingrad for food? 
 
 TURN 3 ROTHINGRAD
+build temples? 
 
 TURN 3 SAURIA
 raid rothingrad for food? 

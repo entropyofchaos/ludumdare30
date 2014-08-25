@@ -64,7 +64,7 @@ var currentDecisionFunctions = [];
 
 function isWin()
 {
-	return currentNation.turnCount == 3;
+	return currentNation.turnCount == 4;
 }
 
 
@@ -83,6 +83,9 @@ function isSurplus(nation)
 
 function makeTradeEvents()
 {
+
+ internationalRelations+=.1;
+ currentNation.approval += .1;
 
  var rivalNation = otherNation();
  var industryDiff = currentNation.industry - otherNation.industry;

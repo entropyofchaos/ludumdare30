@@ -12,7 +12,7 @@ function pollCounters()
 	{
 	  status += famineStrings[currentNation.famineCounter];
 		
-	  currentNation.approval -= .1;
+	  currentNation.approval -= .15;
 		
 	  currentNation.famineCounter++;
 	}
@@ -22,35 +22,12 @@ function pollCounters()
 	  if(currentNation.famineCounter)
 	  {
 		 
-		 currentNation.approval += .1;
+		 currentNation.approval += .25;
 		 status += "The famine has ended. ";
 		 
 	  }
 		
 	  currentNation.famineCounter=0;
-	}
-	
-
-	if(isRiots(currentNation))
-	{
-	  status += riotStrings[currentNation.riotCounter];
-	  
-	  currentNation.approval -= .1;
-	
-	  currentNation.riotCounter++;
-	}
-	else
-	{
-		
-	  if(currentNation.riotCounter)
-	  {
-		 
-		 currentNation.approval += .1;
-		 status += "The riots have been suppressed. ";
-		 
-	  }
-		
-	  currentNation.riotCounter=0;
 	}
 	
 	if(cultureMoribund(currentNation))
@@ -71,6 +48,30 @@ function pollCounters()
 	  }
 	  currentNation.assimilationCounter=0;
 	}
+
+	if(isRiots(currentNation))
+	{
+	  status += riotStrings[currentNation.riotCounter];
+	  
+	  currentNation.approval -= .15;
+	
+	  currentNation.riotCounter++;
+	}
+	else
+	{
+		
+	  if(currentNation.riotCounter)
+	  {
+		 
+		 currentNation.approval += .25;
+		 status += "The riots have been suppressed. ";
+		 
+	  }
+		
+	  currentNation.riotCounter=0;
+	}
+	
+	
 }
 
 
