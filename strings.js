@@ -1,11 +1,11 @@
 //game specific strings and string generator functions
 
 var prologue = "A long long time ago, in a land far far away, there were two mighty kingdoms, Sauria and Rothingrad. "
-				+ " Sauria was run by High Raptor Lord Saurian III. Rothingrad was run by Shifu Rothstine.  " ;//prologue paragraph for the game
+				+ " Sauria was run by High Raptor Lord Saurian III. Rothingrad was run by Shifu Rothstine. <br><br>Rothstine's people are content, lead peaceful lives, and excel at agriculture.<br><br>Saurian's people are industrious, take pride in their military, and have strong cultural convictions.  However, they are inherently mistrustful of authority and have tragically suffered from a long famine and overpopulation.  <br><br>" ;//prologue paragraph for the game
 
-var rothingrad = "You are Shifu Rothstine. Doesn't your portrait look lovely. "
+var rothingrad = "You are Shifu Rothstine. Doesn't your portrait look lovely?<br><br>"
 
-var saurian = "You are High Raptor Lord Saurian III. What nice shiny teeth you have.  "
+var saurian = "You are High Raptor Lord Saurian III. What nice shiny teeth you have.<br><br>"
 
 var riotString1 = "The people are discontented.  Riots have begun.  ";
 
@@ -14,7 +14,6 @@ var riotString2 = "The rioting has continued.  The violence has spread far and w
 var riotString3 = "Despite a strong show of force, you have been unable to suppress the growing dissent among your people.  ";
 
 var riotStrings = [riotString1, riotString2, riotString3];
-
 
 var famineString1 = "Your people are hungry.  ";
 
@@ -98,7 +97,16 @@ function appendOtherStatusStrings(nation)
   if(industryStrong(nation))
   {
     status += "Your industrial machine is the envy of the world.  "
-  }
+  }else if(industryWeak(nation)){
+	  status += "Your industry is weak. ";
+   }
+  
+  if(isSurplus(nation))
+  {
+	status += "Your people have an abundance of food.  ";   
+  }else{
+	  //status += "No surplus!";
+	  }
   
   status += approvalString(nation);
   
@@ -117,9 +125,14 @@ function lossString(nation)
     return "Relations between " + nation1State.name + " and " + nation2State.name + " have been strained to the point of war.  It may be years before the damage can be fully repaired. <br> GAME OVER";
   }
     
-  if(nation.famineCounter >=3 || nation.riotCounter >=3)
+  if( nation.riotCounter >=3)
   {
     return "Discontent among the people has grown into a full scale revolution.  Your people have overthrown you and replaced you with someone who can get the job done better. <br> GAME OVER"
+  }
+  
+  if(nation.famineCounter >=3 )
+  {
+	  return "Widespread starvation has spread throughout the land.  Foreign governments seize upon the tragedy to intervene in your affairs and remove you from power. ";
   }
   
   otherNation = nations[(currentNationVal+1)%2].name;

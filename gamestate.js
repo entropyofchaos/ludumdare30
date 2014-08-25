@@ -21,7 +21,6 @@ nation1State.industry = .1;
 nation1State.tradedFood = 0.0;
 nation1State.tradedIndustry = 0.0;
 
-
 nation1State.upcomingEvents = [];
 nation1State.upcomingDecisions = [];
 
@@ -58,6 +57,11 @@ var status = "";
 
 var currentDecisionStrings=[];
 var currentDecisionFunctions = [];
+
+function isSurplus(nation)
+{
+	return nation.food > nation.population;
+}
 
 function makeTradeEvents()
 {
@@ -108,13 +112,24 @@ function otherNation()
 }
 
 
+function underMilitarized(currentNation, rival)
+{
+	return ( currentNation.militarization / rival.militarization) <= (1.0 / 1.25) ;
+}
+
+function overMilitarized(currentNation, rival)
+{
+	return (currentNation.militarization / rival.militarization) > 1.25;
+}
+
+
 function enqueueStatusTriggers(currentNation)
 {
 	
   rival = otherNation();
   
   //check for events that should trigger based on the current state machine
-  if ((currentNation.militarization / rival.militarization) > 1.25 )
+  if (overMilitarized(currentNation,rival))
   {
      
      var milstr = "International relations have been strained slightly due to the strength of your military presence. However, your people feel secure. "
@@ -127,11 +142,12 @@ function enqueueStatusTriggers(currentNation)
      addUpcomingEvent(currentNation, 0, milFunction, milstr);
   	
   }
-  else if( ((currentNation.militarization / rival.militarization) <= (1.0 / 1.25) ) )
+  else if( underMilitarized(currentNation, rival) )
   {
-     var milstr = "Your national security is much weaker than " + otherNationName() + ".  Your political rivals call you weak. ";
+     var milstr = "Your national security is much weaker than " + otherNationName() + ".  Your political rivals internally call you weak and sow dissent amongst your populace. ";
      
-     function milFunction(){ 
+     function milFunction()
+	 { 
      	currentNation.approval -= .1;
      }
      
@@ -218,6 +234,11 @@ function industryStrong(nation)
   return nation.industry >= .8;
 }
 
+function industryWeak(nation)
+{
+  return nation.industry <= .2;
+}
+
 function cultureStrong(nation)
 {
   return nation.culturalHealth>=.8;
@@ -274,7 +295,8 @@ function populationSpillover()
   }
   
   //the larger nation is overpopulated
-  if(largerPop.population >1.0){
+  if(largerPop.population >1.0)
+  {
 	
 	//tweakable param
 	spilloverrate = .1;

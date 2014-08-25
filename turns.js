@@ -63,11 +63,10 @@ function nextTurn()
 
 	appendOtherStatusStrings(currentNation);
 	
+	pollCounters();
+
 	checkForCurrentDecisions(currentNation);
 
-
-	pollCounters();
-	
 	if(isLoss(currentNation))
 	{
 	
