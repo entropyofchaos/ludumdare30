@@ -9,6 +9,9 @@ military?
 industry? 
 aid? 
 
+
+festival (all turns, conditional)
+
 TURN 1 SAURIA
 fishing 
 farm
@@ -19,21 +22,23 @@ TURN 2 ROTHINGRAD
 trade
 military++
 military+
+cure
 
 TURN 2 SAURIA
 --commit large part of industry to military?
-—commit large part of industry to more efficient food production?  
+commit large part of industry to more efficient food production?  
 raid rothingrad for food? 
 
 TURN 3 ROTHINGRAD
 build temples? 
+pollution?
 
 TURN 3 SAURIA
 raid rothingrad for food? 
+pollution
 
 Turn 4: 
 Game ends.  
-
 
 TODO LIST: 
 

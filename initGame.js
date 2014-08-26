@@ -108,7 +108,7 @@ function intialIndustryExpansion()
 	addPotentialDecision( currentNation, 0, "Expand your military greatly?", function(){return true;}, secondaryMilitarizationStr, secondaryMilitarization);
 	addPotentialDecision( currentNation, 0, "Match Sauria's military?", function(){return true;}, seondaryMilitarizationWeakStr, secondaryMilitarizationWeak);
 	
-	addPotentialDecision(currentNation, 2, "Begin pollution cleanup efforts?", function(){}, "<br><br>Rothingrad's increased industry has resulted in increased pollution levels.  You can begin an initiative to clean it up, but it could be a long time before you see the effects.  ");
+	addPotentialDecision(currentNation, 2, "Begin pollution cleanup efforts?", function(){return true;}, "<br><br>Rothingrad's increased industry has resulted in increased pollution levels.  You can begin an initiative to clean it up, but it could be a long time before you see the effects.  ");
 }
 
 
@@ -116,6 +116,13 @@ function tradeDecision()
 {
 	isTrading = true;
 	//function that checks for status triggers handles the actual trading mechanic
+}
+
+function foodEff()
+{
+	var diff = currentNation.industry * .5;
+	currentNation.industry *= .5;
+	currentNation.food += diff;
 }
 
 function initGame()
@@ -127,7 +134,8 @@ function initGame()
   
 	addUpcomingEvent(nations[1], 0, function(){play('intoTheme');play('raptorGrowl');}, saurian);
 	
-	
+
+
 	addPotentialDecision(nations[0], 0, "Expand your military?", function(){return true;}, "<br><br>You could start expanding your military, although your industrial capacity is weak at the moment and you risk an arms race with Sauria. ", initialMilitarization);
 	
 	addPotentialDecision(nations[0], 0, "Send aid to Sauria?", function(){return true;}, "<br><br>However, Sauria has been suffering from a long famine.  You could send aid instead to  provide temporary relief to the humanitarian (reptilitarian?) crisis and help improve foreign relations.", sendAidFunction);
@@ -137,6 +145,7 @@ function initGame()
 	///\todo only allow trade if not already trading in general. 
 	addPotentialDecision(nations[0], 1, "Open trade with Sauria?", canTrade, "<br><br>Your ambassadors have reported that a new trade agreement with Sauria is on the table. ", tradeDecision);
 	
+		
 	addPotentialDecision(nations[0], 2, "Build temples?", function(){return true;}, "<br><br>Your spiritual advisors tell you that building more sky-temples will give your people a stronger sense of solidarity and patriotism, and that missionaries will spread your faith to foreign lands.", templeDecision);
 	
 	/////////////////////
@@ -145,15 +154,22 @@ function initGame()
 	+ "doing so could potentially cause overfishing to occur, lowering the amount of available fish around the world.", function(){stop('intoTheme');stop('raptorGrowl');
 	play('fish');fishingDecision();});
 	
+	
 	addPotentialDecision(nations[1], 0, "Expand your farm production?", function(){return true}, "<br><br>Alternatively, you can expand your farm production. However " 
 	+ "this may take three cycles of the sun to complete.",function(){farmDecision(); stop('intoTheme');stop('raptorGrowl');});
 	
+	
+	addPotentialDecision(nations[0], 1, "Start researching a cure?", function(){return true;}, "<br><br>Your scouts have given you reports of a deadly plague on another continent.  There are no reports of the disease in your kingdom as of yet.  You can start researching a cure, but it will take a lot of resources and may not pay off for a long time.", function(){});
+	
+	addPotentialDecision(nations[1], 2, "Begin pollution cleanup efforts?", function(){return true;}, "<br><br>The industrialism of your nation has resulted in increased pollution levels.  You can begin an initiative to clean it up, but it could be a long time before you see the effects.  ");
+	
+	addPotentialDecision(nations[1], 1, "Commit industry to developing more a efficient food industry?", function(){return true;},"<br><br>New technological developments may allow you to commit some of the might of your industrial machine to increasing your food output." , foodEff );
 	
 	for( i = 0; i < 3; i++){
 		addPotentialDecision(nations[1], i, "Annex Rothingradian farmland?", function(){return overMilitarized(nations[1], nations[0]);}, "<br><br>Your armies are strong.  You can simply annex some farmland from Rothingrad and deal with the consequences later. " , raidDecision);
 	}
 	
-	addPotentialDecision(nations[1], 2, "Begin pollution cleanup efforts?", function(){}, "<br><br>The industrialism of your nation has resulted in increased pollution levels.  You can begin an initiative to clean it up, but it could be a long time before you see the effects.  ");
+	
 	
 	
 	
