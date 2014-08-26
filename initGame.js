@@ -135,7 +135,7 @@ function developChemicalWeapons()
 {
 	currentNation.militarization += .3;
 	nations[(currentNationVal+1)%2].population *= .9;
-	addUpcomingEvent(nations[(currentNationVal+1)%2], 0, function(){}, "You have been attacked with biological weapons by " + otherNation().name + ". Your people are dying.  ");
+	addUpcomingEvent(nations[(currentNationVal+1)%2], 0, function(){}, "You have been attacked with biological weapons by " + currentNation.name + ". Your people are dying.  ");
 	currentNation.bio = 1;
 }
 
