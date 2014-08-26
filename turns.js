@@ -71,6 +71,13 @@ function pollCounters()
 	  currentNation.riotCounter=0;
 	}
 	
+	if(isHated(currentNation))
+	{
+		var holdFestivalStr = "You people disapprove of your leadership skills. You can hold a festival to gain the peoples favor. ";
+
+		addPotentialDecision( currentNation, 0, "Hold a festival?", function(){return true;}, holdFestivalStr, holdFestival);
+	}
+	
 	
 }
 
