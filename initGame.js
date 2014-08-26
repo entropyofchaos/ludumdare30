@@ -80,7 +80,7 @@ function receiveAidFunction()
 
 function initialMilitarization()
 {
-	currentNation.militarization = .25;
+	currentNation.militarization = .30;
 	
 	addUpcomingEvent(currentNation, 0, function(){}, "You have expanded your military presence. ");
 	
@@ -131,6 +131,14 @@ function holdFestival()
 	addUpcomingEvent(currentNation, 0, function(){}, "You citizens party in the streets and adore you. ");
 }
 
+function developChemicalWeapons()
+{
+	currentNation.militarization += .3;
+	nations[(currentNationVal+1)%2].population *= .9;
+	addUpcomingEvent(nations[(currentNationVal+1)%2], 0, function(){}, "You have been attacked with biological weapons by " + otherNation().name + ". Your people are dying.  ");
+	currentNation.bio = 1;
+}
+
 function initGame()
 {
   
@@ -174,11 +182,6 @@ function initGame()
 	for( i = 0; i < 3; i++){
 		addPotentialDecision(nations[1], i, "Annex Rothingradian farmland?", function(){return overMilitarized(nations[1], nations[0]);}, "<br><br>Your armies are strong.  You can simply annex some farmland from Rothingrad and deal with the consequences later. " , raidDecision);
 	}
-	
-	
-	
-	
-	
 }
 
 function play(song) 

@@ -21,6 +21,7 @@ nation1State.approval = .5;
 nation1State.name = "Rothingrad";
 nation1State.turnCount=0;
 nation1State.industry = .1;
+nation1State.bio = 0;
 
 nation1State.tradedFood = 0.0;
 nation1State.tradedIndustry = 0.0;
@@ -41,6 +42,7 @@ nation2State.approval = .35;
 nation2State.name = "Sauria";
 nation2State.turnCount = -1; //nextTurn() will be called at the start of the game.  default naiton is nation2State.  will increment turncounter to 0 before cycling to nation1State. 
 nation2State.industry = .6;
+nation2State.bio = 0;
 
 nation2State.tradedFood = 0.0;
 nation2State.tradedIndustry = 0.0;
