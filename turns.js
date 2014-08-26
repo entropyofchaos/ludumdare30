@@ -84,7 +84,7 @@ function pollCounters()
 		stop('raptorGrowl');
 	}
 	
-	if (currentNation.militarization > .25 && currentNation.bio == 0)
+	if (currentNation.militarization >= .25 && currentNation.bio == 0)
 	{
 		addPotentialDecision( currentNation, 0, "Develop biological weapons?", function(){return true;}, "<br><br>Your scientists have devised a way to destroy your enemies. You can now develop biological weapons.  ", developChemicalWeapons);
 	}
