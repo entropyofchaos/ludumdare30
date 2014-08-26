@@ -30,7 +30,7 @@ var assimilationString3 = "The people feel completely alienated from their own c
 
 var assimilationStrings = [assimilationString1, assimilationString2, assimilationString3];
 
-var winString = "<br><br>You have kept Sauria and Rothingrad from collapsing for a reasonable amount of time, and the fates that weave the fabric of destiny have run out of thread.  Maybe they'll get some and add more to this game!  Check back soon!<br><br> You're the Winner!";
+var winString = "<br><br>You have kept Sauria and Rothingrad from collapsing for a reasonable amount of time, and the fates that weave the fabric of destiny have run out of thread.  Maybe they'll get some and add more to this game!  Check back soon!<br><br> You're Winner!";
 
 function approvalString(nation)
 {
