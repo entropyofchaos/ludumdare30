@@ -36,9 +36,7 @@ Game ends.
 
 
 TODO LIST: 
-missionaries, purpose of culture? 
+
 DISEASE
 
 population growth: if you have a food surplus
-
-efforts to reduce pollution?

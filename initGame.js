@@ -108,6 +108,7 @@ function intialIndustryExpansion()
 	addPotentialDecision( currentNation, 0, "Expand your military greatly?", function(){return true;}, secondaryMilitarizationStr, secondaryMilitarization);
 	addPotentialDecision( currentNation, 0, "Match Sauria's military?", function(){return true;}, seondaryMilitarizationWeakStr, secondaryMilitarizationWeak);
 	
+	addPotentialDecision(currentNation, 2, "Begin pollution cleanup efforts?", function(){}, "<br><br>Rothingrad's increased industry has resulted in increased pollution levels.  You can begin an initiative to clean it up, but it could be a long time before you see the effects.  ");
 }
 
 
@@ -151,6 +152,8 @@ function initGame()
 	for( i = 0; i < 3; i++){
 		addPotentialDecision(nations[1], i, "Annex Rothingradian farmland?", function(){return overMilitarized(nations[1], nations[0]);}, "<br><br>Your armies are strong.  You can simply annex some farmland from Rothingrad and deal with the consequences later. " , raidDecision);
 	}
+	
+	addPotentialDecision(nations[1], 2, "Begin pollution cleanup efforts?", function(){}, "<br><br>The industrialism of your nation has resulted in increased pollution levels.  You can begin an initiative to clean it up, but it could be a long time before you see the effects.  ");
 	
 	
 	
