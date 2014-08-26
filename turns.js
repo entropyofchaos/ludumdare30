@@ -78,7 +78,11 @@ function pollCounters()
 		addPotentialDecision( currentNation, 0, "Hold a festival?", function(){return true;}, holdFestivalStr, holdFestival);
 	}
 	
-	
+	if (nation1State.turnCount == 1 && nation2State.turnCount == 1)
+	{
+		stop('intoTheme');
+		stop('raptorGrowl');
+	}
 }
 
 
