@@ -249,6 +249,18 @@ return false;
     
 }
 
+function isHated(nation)
+{
+	if(nation.approval <= .5)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
 
 function cultureMoribund(nation)
 {

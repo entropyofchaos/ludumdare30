@@ -118,6 +118,12 @@ function tradeDecision()
 	//function that checks for status triggers handles the actual trading mechanic
 }
 
+function holdFestival()
+{
+	currentNation.approval += .15;
+	addUpcomingEvent(currentNation, 0, function(){}, "You citizens party in the streets and adore you. ");
+}
+
 function initGame()
 {
   
